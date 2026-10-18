@@ -145,17 +145,17 @@ EXPECTED FINAL SUMMARY OUTPUT
 
 Morning Simulation
 Throughput Summary
-North: 15 attendees processed
-East: 12 attendees processed
-South: 16 attendees processed
-West: 8 attendees processed
+North: 14 attendees processed
+East: 11 attendees processed
+South: 11 attendees processed
+West: 7 attendees processed
 
 Night Simulation
 Throughput Summary
-North: 14 attendees processed
+North: 11 attendees processed
 East: 8 attendees processed
-South: 20 attendees processed
-West: 12 attendees processed
+South: 15 attendees processed
+West: 9 attendees processed
 
 Note: Rerouting changes the queues in place. Running simulateFestival
 again on the same gate arrays would reuse the mutated queues, so use
