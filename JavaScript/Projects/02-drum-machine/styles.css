@@ -1,0 +1,66 @@
+/* Style the entire page */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #10131c;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the main drum machine container */
+#drum-machine {
+  width: min(90%, 600px);
+  padding: 24px;
+  background: #202638;
+  border-radius: 16px;
+  text-align: center;
+}
+
+/* Arrange the drum pads in three equal-width columns */
+#pad-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Style each drum pad button */
+.drum-pad {
+  padding: 24px;
+  border: 0;
+  border-radius: 10px;
+  background: #39445f;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Change the pad's background while the pointer hovers over it */
+.drum-pad:hover {
+  background: #536b9a;
+}
+
+/* Style the area that displays the name of the triggered sound */
+#display {
+  margin-top: 24px;
+  padding: 14px;
+  background: #10131c;
+  border-radius: 8px;
+  color: #7fffd4;
+}
+
+/* Make a pad feel responsive while it is physically pressed */
+.drum-pad:active {
+  transform: scale(0.95);
+}
+
+/* Visual feedback added by JavaScript when a pad is triggered */
+.drum-pad.active {
+  background: #7fffd4;
+  color: #10131c;
+  transform: scale(0.95);
+  box-shadow: 0 0 15px black;
+}
