@@ -1,0 +1,257 @@
+/* Apply border-box sizing so padding and borders are included in element widths. */
+* {
+  box-sizing: border-box;
+}
+
+/* Define shared page colors, font, and dark color scheme. */
+:root {
+  color-scheme: dark;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b1224;
+  color: #f4f7ff;
+}
+
+/* Center the dashboard and create the dark gradient background. */
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 36px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, #203c66 0, transparent 42%),
+    linear-gradient(145deg, #0b1224, #132943);
+}
+
+/* Limit the dashboard width and style it like a glass panel. */
+.weather-app {
+  width: 100%;
+  max-width: 560px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.28);
+}
+
+/* Add space below the app heading. */
+.app-header {
+  margin-bottom: 28px;
+}
+
+/* Style the small uppercase section labels. */
+.eyebrow {
+  margin: 0 0 8px;
+  color: #78dcd6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Use a responsive title size with clamp(minimum, preferred, maximum). */
+h1 {
+  margin: 0;
+  font-size: clamp(27px, 5vw, 35px);
+  letter-spacing: -1px;
+}
+
+/* Style the supporting description. */
+.subtitle {
+  margin: 10px 0 0;
+  color: #aabbd4;
+  line-height: 1.6;
+}
+
+/* Stack the city label, dropdown, and button vertically. */
+.city-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Make the dropdown label easy to read. */
+.city-selector label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Give the select and button consistent dimensions. */
+select,
+button {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  font-size: 15px;
+}
+
+/* Style the city dropdown. */
+select {
+  border: 1px solid #3b4d6b;
+  background: #17253d;
+  color: #ffffff;
+}
+
+/* Style the primary action button and animate hover changes. */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background: #78dcd6;
+  color: #102437;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Give visual feedback when the pointer hovers over the button. */
+button:hover {
+  background: #a0eee8;
+  transform: translateY(-1px);
+}
+
+/* Keep keyboard focus visible for accessibility. */
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid #b7f5f1;
+  outline-offset: 3px;
+}
+
+/* Style the panel containing all weather results. */
+.weather-card {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 19px;
+  background: rgba(5, 12, 27, 0.42);
+}
+
+/* Place city/condition information and icon on opposite sides. */
+.weather-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Style the city name. */
+.weather-heading h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+/* Highlight the current weather condition. */
+#weather-main {
+  margin: 8px 0 0;
+  color: #78dcd6;
+  text-transform: capitalize;
+}
+
+/* Keep the weather icon inside a predictable square. */
+#weather-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+/* Separate the main temperature from the secondary measurements. */
+.temperature-panel {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(
+    120deg,
+    rgba(120, 220, 214, 0.13),
+    rgba(120, 220, 214, 0.035)
+  );
+}
+
+/* Shared styling for labels such as humidity and wind speed. */
+.detail-label {
+  margin: 0;
+  color: #aabbd4;
+  font-size: 13px;
+}
+
+/* Make the main temperature large and prominent. */
+.temperature {
+  margin: 8px 0 0;
+  font-size: clamp(42px, 9vw, 58px);
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+/* Style the Celsius unit separately from the number. */
+.unit {
+  margin-left: 4px;
+  color: #78dcd6;
+  font-size: 23px;
+  vertical-align: top;
+}
+
+/* Arrange secondary measurements in a two-column CSS grid. */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* Align each weather icon and its label/value pair. */
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 15px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Set a consistent size for the decorative weather symbols. */
+.detail-icon {
+  font-size: 23px;
+}
+
+/* Emphasize the measured value and allow long values to wrap. */
+.detail-value {
+  margin: 6px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Center the small note at the bottom of the dashboard. */
+.app-footer {
+  margin-top: 22px;
+  color: #8396b3;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Adjust spacing and card sizes for narrow mobile screens. */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .weather-app {
+    padding: 22px 17px;
+  }
+
+  .weather-card {
+    padding: 17px;
+  }
+
+  .detail-item {
+    gap: 8px;
+    padding: 12px 9px;
+  }
+
+  .detail-icon {
+    font-size: 19px;
+  }
+}
