@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Set the character encoding and make the layout responsive on mobile screens. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+
+  <!-- Load the styles from the separate CSS file. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main wrapper keeps the dashboard content together. -->
+  <main class="weather-app">
+    <!-- Introductory title and description. -->
+    <header class="app-header">
+      <p class="eyebrow">WEATHER REPORT</p>
+      <h1>Weather Dashboard</h1>
+      <p class="subtitle">Explore the weather around the world.</p>
+    </header>
+
+    <!-- City selection controls: the select value is used in the API request. -->
+    <div class="city-selector">
+      <label for="city-select">Choose a city</label>
+      <select id="city-select">
+        <option value=""></option>
+        <option value="new york">New York</option>
+        <option value="los angeles">Los Angeles</option>
+        <option value="chicago">Chicago</option>
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="london">London</option>
+      </select>
+
+      <!-- type="button" prevents accidental form-submission behaviour if this is later placed in a form. -->
+      <button id="get-weather-btn" type="button">
+        Get Weather
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+
+    <!-- aria-live politely announces updated weather content to assistive technology. -->
+    <section class="weather-card" aria-live="polite">
+      <div class="weather-heading">
+        <div>
+          <p class="eyebrow">CURRENT LOCATION</p>
+          <h2 id="location">Location</h2>
+          <p id="weather-main">Weather condition</p>
+        </div>
+
+        <!-- JavaScript sets src and alt based on the API response. -->
+        <img id="weather-icon" src="" alt="Weather icon">
+      </div>
+
+      <!-- Main temperature is displayed more prominently than the other readings. -->
+      <div class="temperature-panel">
+        <p class="detail-label">Temperature</p>
+        <p class="temperature">
+          <span id="main-temperature">--</span><span class="unit">°C</span>
+        </p>
+      </div>
+
+      <!-- Additional weather measurements are updated by JavaScript. -->
+      <div class="weather-details">
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">🌡</span>
+          <div>
+            <p class="detail-label">Feels like</p>
+            <p class="detail-value"><span id="feels-like">--</span> °C</p>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">💧</span>
+          <div>
+            <p class="detail-label">Humidity</p>
+            <p class="detail-value"><span id="humidity">--</span>%</p>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">💨</span>
+          <div>
+            <p class="detail-label">Wind speed</p>
+            <p class="detail-value"><span id="wind">--</span> m/s</p>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">🌬</span>
+          <div>
+            <p class="detail-label">Wind gust</p>
+            <p class="detail-value"><span id="wind-gust">--</span> m/s</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      Weather data displayed in metric units.
+    </footer>
+  </main>
+
+  <!-- Load JavaScript after the HTML so the elements exist when queried. -->
+  <script src="script.js"></script>
+</body>
+</html>
